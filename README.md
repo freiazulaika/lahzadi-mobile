@@ -17,7 +17,7 @@ _Widget_ ini berfungsi sebagai halaman _home_ dari Lahzadi. _Widget_ ini menyimp
 * ItemCard
 _Widget_ ini berfungsi dalam menampikan tombol-tombol yang bersifat interaktif. _Widget_ ini mengatur bentuk, tema, warna, dan aksi yang dapat dilakukan pada _cards_ sehingga dapat bertindak sebagai tombol.
 * InfoCard
-_Widget_
+_Widget_ ini berfungsi dalam menampilkan data-data seperti name, npm, dan classname dalam bentuk _card_ yang sudah disimpan di _widget_ MyHomePage. _Widget_ ini juga berfungsi dalam mengatur bentuk, tema, dan warna yang akan ditampilkan.
 
 ## Apa fungsi dari setState()? Jelaskan variabel apa saja yang dapat terdampak dengan fungsi tersebut.
 `setState()` merupakan fungsi di _stateful widget_ yang berfungsi untuk memberi tahu _framework_ bahwa _state_ internal yang ada di _widget_ tersebut telah berubah dan untuk mengubah tampilan UI pengguna, perlu dilakukan _rebuild_. Jika suatu _state_ berubah dan tidak memanggil fungsi `setState()`, maka tampilan UI pengguna tidak akan menunjukkan perubahannya. Variabel-variabel yang terdampak dari fungsi ini yaitu variabel yang berada di dalam objek _state_.
