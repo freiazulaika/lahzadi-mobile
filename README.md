@@ -124,5 +124,47 @@ onTap: () {
                 content: Text("Kamu telah menekan tombol ${item.name}!")));
         },
 ```
+</details>
 
+<details>
+<Summary><b>Tugas 8: Flutter Navigation, Layouts, Forms, and Input Elements</b></Summary>
+
+## Apa kegunaan const di Flutter? Jelaskan apa keuntungan ketika menggunakan const pada kode Flutter. Kapan sebaiknya kita menggunakan const, dan kapan sebaiknya tidak digunakan?
+`const` dalam Flutter sangat penting untuk digunakan karena dapat meningkatkan efisiensi dan performa aplikasi. `const` digunakan untuk nilai atau _widget_ yang bersifat tetap/konstan dan tidak akan berubah selama _runtime_. Sehingga, Flutter dapat membuat objek hanya sekali, disimpan di memori, dan kita dapat menggunakannya kembali tanpa perlu membuat ulang. Penggunaan ini dapat membuat kita dalam menghemat memori dan mempercepat proses _rendering_. Selain itu, `const` dapat membantu mempercepat waktu _build_, mengurangi penggunaan CPU, dan mampu menciptakan aplikasi yang lebih responsif. `const` juga memiliki sifat yang _immutable_, jadi dapat membuat kode lebih mudah diprediksi, stabil, dan lebih mudah di-debug.
+
+## Jelaskan dan bandingkan penggunaan Column dan Row pada Flutter. Berikan contoh implementasi dari masing-masing layout widget ini!
+_Widget_ Column dan Row digunakan untuk menyusun _child widget_ dalam arah tertentu. Column menyusun _child_ secara vertikal dari atas ke bawah, sedangkan Row menyusun _child_ secara horizontal dari kiri ke kanan. Keduanya memiliki properti `mainAxisAlignment` untuk mengatur letak _child_ di sepanjang sumbu utama (vertikal untuk Column dan horizontal untuk Row) dan `crossAxisAlignment` untuk sumbu sebaliknya. Perbedaannya, Column lebih cocok untuk _layout_ seperti daftar yang berurutan ke bawah atau halaman yang membutuhkan _scrolling_, sedangkan Row lebih cocok untuk susunan horizontal seperti baris ikon atau tombol.
+```
+Column(
+  crossAxisAlignment: CrossAxisAlignment.start,
+  children: [
+    Text('Nama: $_name'),
+    Text('Jumlah: $_amount'),
+    Text('Deskripsi: $_description'),
+    Text('Harga: $_price'),
+    Text('Ukuran: $_size'),
+  ],
+),
+
+Row(
+  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+  children: [
+    InfoCard(title: 'NPM', content: npm),
+    InfoCard(title: 'Name', content: name),
+    InfoCard(title: 'Class', content: className),
+  ],
+),
+```
+## Sebutkan apa saja elemen input yang kamu gunakan pada halaman form yang kamu buat pada tugas kali ini. Apakah terdapat elemen input Flutter lain yang tidak kamu gunakan pada tugas ini? Jelaskan!
+Elemen input yang saya gunakan di halaman form yaitu `TextFormField` itu menerima semua input (nama, jumlah, deskripsi, harga, dan ukuran). Namun, terdapat elemen input lain seperti `Checkbox` untuk menerima input berupa boolean, `Radio` untuk menerima tepat satu input dari beberapa pilihan, `DropdownButtonFormField` untuk menerima input berupa pilihan dari daftar, dan `Slider` untuk menerima input nilai dalam sebuah rentang seperti ukuran.
+
+## Bagaimana cara kamu mengatur tema (theme) dalam aplikasi Flutter agar aplikasi yang dibuat konsisten? Apakah kamu mengimplementasikan tema pada aplikasi yang kamu buat?
+Di dalam aplikasi saya, saya menggunakan `ThemeData` yang ada di berkas `main.dart` di _widget_ `MaterialApp`. Di bagian ini, tema saya didefinisikan dengan `colorScheme` menggunakan `ColorScheme.fromSwatch` dan warna utama dari aplikasi saya adalah teal.
+
+## Bagaimana cara kamu menangani navigasi dalam aplikasi dengan banyak halaman pada Flutter?
+Navigasi diatur menggunakan `Navigator.push()`, `Navigator.pushReplacement()`, dan `Navigator.pop()`. `Navigator.push()` digunakan untuk menambahkan halaman ke _stack_ Navigator. Halaman akan ditambahkan di bagian paling atas dari stack dan halaman tersebut-lah yang akan ditampilkan ke pengguna. Halaman sebelumnya akan tetap ada di stack dan tetap dapat diakses oleh pengguna ketika pengguna memilih untuk kembali.
+
+`Navigator.pushReplacement()`digunakan untuk menambahkan halaman ke stack Navigator namun sebelumnya menghapus halaman yang ada di paling atas dari stack. Misal kita memiliki stack berisi ['Page1', 'Page2', 'Page3'], ketika melakukan `Navigator.pushReplacement()` pada 'Page4', maka stack akan berisi ['Page1', 'Page2', 'Page4']. Setelah melakukan pushReplacement, halaman yang di-push akan ditampilkan ke pengguna. Jika pengguna berada di 'Page4' dan mau mengakses halaman sebelumnya, maka akan masuk ke 'Page2'
+
+`Navigator.pop()` digunakan untuk menghapus halaman yang sedang kita tampilkan dari stack Navigator. Setelah melakukan pop, halaman akan pindah ke halaman yang ada di bawah halaman yang di-pop tadi.
 </details>
