@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:lahzadi/screens/productentry_form.dart';
 import 'package:lahzadi/widgets/left_drawer.dart';
 import 'package:lahzadi/widgets/product_card.dart';
 

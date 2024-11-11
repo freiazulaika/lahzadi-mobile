@@ -130,7 +130,7 @@ onTap: () {
 <Summary><b>Tugas 8: Flutter Navigation, Layouts, Forms, and Input Elements</b></Summary>
 
 ## Apa kegunaan const di Flutter? Jelaskan apa keuntungan ketika menggunakan const pada kode Flutter. Kapan sebaiknya kita menggunakan const, dan kapan sebaiknya tidak digunakan?
-`const` dalam Flutter sangat penting untuk digunakan karena dapat meningkatkan efisiensi dan performa aplikasi. `const` digunakan untuk nilai atau _widget_ yang bersifat tetap/konstan dan tidak akan berubah selama _runtime_. Sehingga, Flutter dapat membuat objek hanya sekali, disimpan di memori, dan kita dapat menggunakannya kembali tanpa perlu membuat ulang. Penggunaan ini dapat membuat kita dalam menghemat memori dan mempercepat proses _rendering_. Selain itu, `const` dapat membantu mempercepat waktu _build_, mengurangi penggunaan CPU, dan mampu menciptakan aplikasi yang lebih responsif. `const` juga memiliki sifat yang _immutable_, jadi dapat membuat kode lebih mudah diprediksi, stabil, dan lebih mudah di-debug.
+`const` dalam Flutter sangat penting untuk digunakan karena dapat meningkatkan efisiensi dan performa aplikasi. `const` digunakan untuk nilai atau _widget_ yang bersifat tetap/konstan dan tidak akan berubah selama _runtime_. Sehingga, Flutter dapat membuat objek hanya sekali, disimpan di memori, dan kita dapat menggunakannya kembali tanpa perlu membuat ulang. Penggunaan ini dapat membuat kita dalam menghemat memori dan mempercepat proses _rendering_. Selain itu, `const` dapat membantu mempercepat waktu _build_, mengurangi penggunaan CPU, dan mampu menciptakan aplikasi yang lebih responsif. `const` juga memiliki sifat yang _immutable_, jadi dapat membuat kode lebih mudah diprediksi, stabil, dan lebih mudah di-debug. Karena memiliki sifat _immutable_, `const` tidak cocok untuk digunakan dalam _widget_ yang bersifat dinamis seperti input pengguna.
 
 ## Jelaskan dan bandingkan penggunaan Column dan Row pada Flutter. Berikan contoh implementasi dari masing-masing layout widget ini!
 _Widget_ Column dan Row digunakan untuk menyusun _child widget_ dalam arah tertentu. Column menyusun _child_ secara vertikal dari atas ke bawah, sedangkan Row menyusun _child_ secara horizontal dari kiri ke kanan. Keduanya memiliki properti `mainAxisAlignment` untuk mengatur letak _child_ di sepanjang sumbu utama (vertikal untuk Column dan horizontal untuk Row) dan `crossAxisAlignment` untuk sumbu sebaliknya. Perbedaannya, Column lebih cocok untuk _layout_ seperti daftar yang berurutan ke bawah atau halaman yang membutuhkan _scrolling_, sedangkan Row lebih cocok untuk susunan horizontal seperti baris ikon atau tombol.
@@ -155,6 +155,7 @@ Row(
   ],
 ),
 ```
+
 ## Sebutkan apa saja elemen input yang kamu gunakan pada halaman form yang kamu buat pada tugas kali ini. Apakah terdapat elemen input Flutter lain yang tidak kamu gunakan pada tugas ini? Jelaskan!
 Elemen input yang saya gunakan di halaman form yaitu `TextFormField` itu menerima semua input (nama, jumlah, deskripsi, harga, dan ukuran). Namun, terdapat elemen input lain seperti `Checkbox` untuk menerima input berupa boolean, `Radio` untuk menerima tepat satu input dari beberapa pilihan, `DropdownButtonFormField` untuk menerima input berupa pilihan dari daftar, dan `Slider` untuk menerima input nilai dalam sebuah rentang seperti ukuran.
 
