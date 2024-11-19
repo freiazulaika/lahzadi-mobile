@@ -54,9 +54,10 @@ class ItemCard extends StatelessWidget {
                 ScaffoldMessenger.of(context).showSnackBar(SnackBar(
                   content: Text("$message Sampai jumpa, $uname."),
                 ));
-                Navigator.pushReplacement(
+                Navigator.pushAndRemoveUntil(
                   context,
                   MaterialPageRoute(builder: (context) => const LoginPage()),
+                  (route) => false, // Hapus halaman-halaman sebelumnya
                 );
               } else {
                 ScaffoldMessenger.of(context).showSnackBar(

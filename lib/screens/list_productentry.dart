@@ -88,7 +88,7 @@ class _ProductEntryPage extends State<ProductEntryPage> {
                       const SizedBox(height: 10),
                       // Menampilkan deskripsi produk
                       Text(
-                        "Harga Produk: ${snapshot.data![index].fields.description}",
+                        "Deskripsi Produk: ${snapshot.data![index].fields.description}",
                         style: const TextStyle(fontSize: 16.0),
                       ),
                       const SizedBox(height: 10),
