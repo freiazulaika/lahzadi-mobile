@@ -1,5 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:lahzadi/screens/list_productentry.dart';
+import 'package:lahzadi/screens/login.dart';
 import 'package:lahzadi/screens/productentry_form.dart';
+import 'package:pbp_django_auth/pbp_django_auth.dart';
+import 'package:provider/provider.dart';
 
 // Buat item di halaman utamanya, propertinya ada name, icon, dan color
 class ItemHomepage {
@@ -16,12 +20,13 @@ class ItemCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final request = context.watch<CookieRequest>();
     return Material(
       color: item.color,
       borderRadius: BorderRadius.circular(12),
       child: InkWell(
         // Buat interaktif
-        onTap: () {
+        onTap: () async {
           // Menampilkan SnackBar saat item ditekan
           ScaffoldMessenger.of(context)
             ..hideCurrentSnackBar()
@@ -34,6 +39,33 @@ class ItemCard extends StatelessWidget {
                 MaterialPageRoute(
                   builder: (context) => ProductEntryFormPage(),
                 ));
+          } else if (item.name == "Lihat Daftar Produk") {
+            Navigator.push(
+              context,
+              MaterialPageRoute(builder: (context) => const ProductEntryPage()),
+            );
+          } else if (item.name == "Logout") {
+            final response =
+                await request.logout("http://127.0.0.1:8000/auth/logout/");
+            String message = response["message"];
+            if (context.mounted) {
+              if (response['status']) {
+                String uname = response["username"];
+                ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+                  content: Text("$message Sampai jumpa, $uname."),
+                ));
+                Navigator.pushReplacement(
+                  context,
+                  MaterialPageRoute(builder: (context) => const LoginPage()),
+                );
+              } else {
+                ScaffoldMessenger.of(context).showSnackBar(
+                  SnackBar(
+                    content: Text(message),
+                  ),
+                );
+              }
+            }
           }
         },
         child: Container(
